@@ -4,6 +4,7 @@
 // Author: Kwisha
 // Author: Nemo bis
 // Author: Rance
+// Author: Samuel Kiongo
 // Author: Wangombe
 // Author: Yasen igra
 
@@ -40,13 +41,14 @@
 "button-skip" = "Ruka";
 "cancel" = "Ghairi";
 "close-button-accessibility-label" = "Funga";
+"developer-settings-dynamic-tabs-BYR" = "Washa vichupo kwa Kwa sababu Umesoma";
+"developer-settings-dynamic-tabs-DYK" = "Washa vichupo kwa kutumia Je, Wajua";
 "edit-summary-choice-fixed-grammar" = "Nimerekebisha sarufi";
 "edit-summary-choice-fixed-typos" = "Nimerekebisha chapa mbaya";
 "edit-summary-choice-linked-words" = "Nimeongeza viungo";
 "explore-feed-customize-accessibility-title" = "Rekebisha";
 "explore-feed-preferences-card-hidden-title" = "kadi iliyofichwa";
 "explore-nearby-placeholder-sub-heading-on-wikipedia" = "Kutoka Wikipedia";
-"history-clear-cancel" = "Ghairi";
 // Fuzzy
 "history-clear-confirmation-heading" = "Futa vifaa vyote vya hivi karibuni?";
 // Fuzzy
@@ -74,7 +76,6 @@
 "places-location-enabled" = "uonyeshi umewezeshwa";
 "search-did-you-mean" = "Ulimaanisha $1?";
 "search-field-placeholder-text" = "Tafuta Wikipedia";
-"search-recent-clear-cancel" = "Ghairi";
 "search-recent-clear-delete-all" = "Futa Zote";
 // Fuzzy
 "search-recent-title" = "Kutafuta kwa hivi karibuni";

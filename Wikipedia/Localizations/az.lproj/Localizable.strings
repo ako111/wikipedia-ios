@@ -136,6 +136,18 @@
 "article-revision-history" = "Məqalənin redaktə tarixçəsi";
 "article-save-error-not-enough-space" = "Bu məqaləni saxlamaq üçün cihazınızda kifayət qədər yer yoxdur";
 "article-share" = "Paylaş";
+"article-tabs-button-accessibility-hint" = "Vərəqələrə keçirir";
+"article-tabs-button-accessibility-label" = "Məqalə vərəqələri";
+"article-tabs-feature-announcement-item-1-subtitle" = "Birdən çox məqalə açın və onlar arasında asanlıqla keçid edin.";
+"article-tabs-feature-announcement-item-1-title" = "Vərəqələr vasitəsilə gəzin";
+"article-tabs-feature-announcement-item-2-subtitle" = "Vərəqələr sürüşmə mövqeyinizi avtomatik olaraq xatırlayacaq.";
+"article-tabs-feature-announcement-item-2-title" = "Qaldığınız yerdən davam edin";
+"article-tabs-feature-announcement-item-3-subtitle" = "Yerinizi itirmədən keçidləri arxa fonda açın.";
+"article-tabs-feature-announcement-item-3-title" = "Daha sonra üçün linkləri yadda saxlayın";
+"article-tabs-feature-announcement-item-4-subtitle" = "Yeni vərəqə açarkən əyləncəli faktlar və ya oxuma təklifləri seçin.";
+"article-tabs-feature-announcement-item-4-title" = "Yeni vərəqənizi fərdiləşdirin";
+"article-tabs-feature-announcement-sub-cta" = "Vərəqələr haqqında ətraflı öyrənin";
+"article-tabs-feature-announcement-title" = "Vərəqələri təqdim edirik";
 "article-tabs-max-reached" = "Vərəqə limitinə çatıldı ($1). Məqalə bu vərəqədə açıldı. Zəhmət olmasa, bir və ya daha çox vərəqəni bağlayın.";
 "article-tabs-navigation" = "Vərəqə naviqasiyası";
 "article-tabs-onboarding-tooltip" = "Vərəqələr üçün əlavə ipucları";
@@ -223,8 +235,9 @@
 "developer-settings-activity-tab-group-A" = "Fəaliyyət vərəqəsini A qrupuna təyin et";
 "developer-settings-activity-tab-group-B" = "Fəaliyyət vərəqəsini B qrupuna təyin et";
 "developer-settings-activity-tab-group-C" = "Fəaliyyət vərəqəsini C qrupuna təyin et";
-"developer-settings-activity-tabs" = "Fəaliyyət vərəqələrini aktivləşdir";
 "developer-settings-bypass-donation" = "İanəni atla";
+"developer-settings-dynamic-tabs-BYR" = "Oxuduğunuz üçün vərəqələrini aktivləşdirin";
+"developer-settings-dynamic-tabs-DYK" = "Bilirsinizmi vərəqələrini aktivləşdirin";
 "developer-settings-enable-year-in-review" = "İlə Baxışı aktivləşdir";
 "developer-settings-send-analytics-to-wmflabs" = "Analitik datanı wmflabs-a göndər.";
 "developer-settings-suppress-image-rec-post" = "Şəkil tövsiyələrini redaktə etməyi paylaşma.";
@@ -572,7 +585,6 @@
 "gan-variants-alert-body" = "Vikipediya proqramı indi tətbiq daxilində əsas və ya köməkçi dillər kimi aşağıdakı Gan variantlarını dəstəkləyir və bu, seçdiyiniz variantlarda oxumağı, axtarmağı və redaktə etməyi asanlaşdırır:\n\n贛語 原文 Gan (gan)\n赣语简体 Gan, Sadələşdirilmiş (gan-hans)\n贛語 繁體 Gan, Ənənəvi (gan-hant)";
 "gan-variants-alert-title" = "Gan variant dəstəyi üçün yeniləmələr";
 "history-clear-all" = "Təmizlə";
-"history-clear-cancel" = "İmtina";
 "history-clear-confirmation-heading" = "Bütün son elementlərinizi silmək istədiyinizə əminsiniz?";
 "history-clear-delete-all" = "Bəli, hamısını sil";
 "history-title" = "Tarixçə";
@@ -1094,7 +1106,6 @@
 "search-did-you-mean" = "Bəlkə, bunu nəzərdə tuturdunuz: $1";
 "search-field-placeholder-text" = "Vikipediyada axtar";
 "search-reading-list-placeholder-text" = "Oxuma siyahısında axtar";
-"search-recent-clear-cancel" = "Ləğv et";
 "search-recent-clear-confirmation-heading" = "Son axtarışlar silinsin?";
 "search-recent-clear-confirmation-sub-heading" = "Bu əməliyyat geri qaytarıla bilməz!";
 "search-recent-clear-delete-all" = "Hamısını sil";
@@ -1281,6 +1292,7 @@
 "theme-default-explanation" = "Sistem mövzusuna uyğunlaşdır";
 "theme-light-display-name" = "İşıqlı";
 "theme-sepia-display-name" = "Sepiya";
+"today-title" = "Bu gün";
 "top-read-widget-description" = "Dünyanın bu gün Vikipediyada nə oxuduğunu öyrənin.";
 "top-read-widget-readers-count" = "$1 oxucu";
 "top-read-widget-title" = "Ən çox oxunanlar";
@@ -1484,3 +1496,4 @@
 "year-in-review-survey-very-unsatisfied" = "Çox narazıyam";
 "year-in-review-wikipedia-w-accessibility-label" = "Vikipediya w loqosu";
 "year-in-review-wmf-logo-accessibility-label" = "Vikimedia Fondunun loqosu";
+"yesterday-title" = "Dünən";

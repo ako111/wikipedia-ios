@@ -170,6 +170,18 @@
 "article-revision-history" = "條目修訂紀錄";
 "article-save-error-not-enough-space" = "您的裝置沒有足夠的空間來儲存此條目";
 "article-share" = "分享";
+"article-tabs-button-accessibility-hint" = "導覽至分頁概要";
+"article-tabs-button-accessibility-label" = "條目分頁";
+"article-tabs-feature-announcement-item-1-subtitle" = "打開多篇條目並輕鬆在各條目間切換。";
+"article-tabs-feature-announcement-item-1-title" = "使用分頁瀏覽";
+"article-tabs-feature-announcement-item-2-subtitle" = "分頁會自動記住您的滑動位置。";
+"article-tabs-feature-announcement-item-2-title" = "從您上次結束的地方開始";
+"article-tabs-feature-announcement-item-3-subtitle" = "在後台分頁裡開啟連結且不遺失您的位置。";
+"article-tabs-feature-announcement-item-3-title" = "儲存連結以供事後使用";
+"article-tabs-feature-announcement-item-4-subtitle" = "當開啟新分頁時選擇有趣的事實或閱讀建議。";
+"article-tabs-feature-announcement-item-4-title" = "個人化您的新分頁";
+"article-tabs-feature-announcement-sub-cta" = "了解更多有關分頁";
+"article-tabs-feature-announcement-title" = "引入分頁";
 "article-tabs-max-reached" = "已達到分頁限制（最多 $1 個）。條目已在目前分頁中開啟。請關閉一個或多個分頁。";
 "article-tabs-navigation" = "分頁導覽";
 "article-tabs-onboarding-tooltip" = "分頁的入門提示";
@@ -259,8 +271,9 @@
 "developer-settings-activity-tab-group-A" = "將活動分頁設定成群組 A";
 "developer-settings-activity-tab-group-B" = "將活動分頁設定成群組 B";
 "developer-settings-activity-tab-group-C" = "將活動分頁設定成群組 C";
-"developer-settings-activity-tabs" = "啟用有效的分頁";
 "developer-settings-bypass-donation" = "跳過捐贈";
+"developer-settings-dynamic-tabs-BYR" = "以「您曾閱讀過的」啟用分頁";
+"developer-settings-dynamic-tabs-DYK" = "以「您知道嗎」啟用分頁";
 "developer-settings-enable-year-in-review" = "啟用年度回顧";
 "developer-settings-send-analytics-to-wmflabs" = "傳送分析給維基媒體基金會實驗室。";
 "developer-settings-suppress-image-rec-post" = "請不要發送圖片推薦編輯。";
@@ -608,7 +621,6 @@
 "gan-variants-alert-body" = "維基百科應用程式現在支援下列贛語異體字作為應用程式裡的主要語言或次要語言，能以您首選的異體字來更易於閱讀、搜尋、編輯：\n\n贛語 原文（gan）\n赣语 简体（gan-hans）\n贛語 繁體（gan-hant）";
 "gan-variants-alert-title" = "贛語異體字支援更新";
 "history-clear-all" = "清除";
-"history-clear-cancel" = "取消";
 "history-clear-confirmation-heading" = "您確定要刪除您所有的近期項目嗎？";
 "history-clear-delete-all" = "是的，刪除全部";
 "history-title" = "歷史";
@@ -987,7 +999,7 @@
 "preference-summary-eventlogging-opt-in" = "允許維基媒體基金會收集有關您如何使用應用程式的資訊，來讓此應用程式能更好";
 "privacy-policy-title" = "隱私權政策";
 "problem-with-feature-title" = "功能問題";
-"profile-button-accessibility-hint" = "導航至個人資料檢視。";
+"profile-button-accessibility-hint" = "導覽至個人資料檢視。";
 "profile-button-accessibility-label" = "個人資料";
 "profile-button-badge-accessibility-label" = "帶有尚未讀取徽章通知的個人資料";
 "profile-page-donate-subtext" = "或透過捐款支持維基百科，來讓世界各地的人可免費使用。";
@@ -1134,7 +1146,6 @@
 "search-did-you-mean" = "您指的是 $1 嗎？";
 "search-field-placeholder-text" = "搜尋維基百科";
 "search-reading-list-placeholder-text" = "搜尋閱讀清單";
-"search-recent-clear-cancel" = "取消";
 "search-recent-clear-confirmation-heading" = "刪除所有近期搜尋嗎？";
 "search-recent-clear-confirmation-sub-heading" = "此操作不能還原！";
 "search-recent-clear-delete-all" = "刪除所有";
@@ -1321,6 +1332,7 @@
 "theme-default-explanation" = "符合系統主題";
 "theme-light-display-name" = "明亮";
 "theme-sepia-display-name" = "棕褐色";
+"today-title" = "今日";
 "top-read-widget-description" = "了解全世界的人今天都在維基百科上讀些什麼。";
 "top-read-widget-readers-count" = "$1個讀者";
 "top-read-widget-title" = "最多閱讀";
@@ -1524,3 +1536,4 @@
 "year-in-review-survey-very-unsatisfied" = "非常不滿意";
 "year-in-review-wikipedia-w-accessibility-label" = "維基百科 w 標誌";
 "year-in-review-wmf-logo-accessibility-label" = "維基媒體基金會標誌";
+"yesterday-title" = "昨日";

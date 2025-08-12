@@ -125,6 +125,16 @@
 "article-share" = "Text of the article list row action shown on swipe which allows the user to choose the sharing option";
 "article-tabs-button-accessibility-hint" = "Accessibility hint for the tabs navigation bar button";
 "article-tabs-button-accessibility-label" = "Accessibility label for the tabs navigation bar button";
+"article-tabs-feature-announcement-item-1-subtitle" = "Subtitle for the article tabs feature announcement item 2";
+"article-tabs-feature-announcement-item-1-title" = "Title for the article tabs feature announcement item";
+"article-tabs-feature-announcement-item-2-subtitle" = "Subtitle for the article tabs feature announcement item 2";
+"article-tabs-feature-announcement-item-2-title" = "Title for the article tabs feature announcement item 2";
+"article-tabs-feature-announcement-item-3-subtitle" = "Subtitle for the article tabs feature announcement item 3";
+"article-tabs-feature-announcement-item-3-title" = "Title for the article tabs feature announcement item 3";
+"article-tabs-feature-announcement-item-4-subtitle" = "Subtitle for the article tabs feature announcement item 4";
+"article-tabs-feature-announcement-item-4-title" = "Title for the article tabs feature announcement item 4";
+"article-tabs-feature-announcement-sub-cta" = "Call to action text in the article tabs feature announcement, inviting the user to learn more about tabs.";
+"article-tabs-feature-announcement-title" = "Title for the article tabs feature announcement";
 "article-tabs-max-reached" = "Warning toast presented to users when they attempt to open a new tab after maximum tab number is reached. $1 is replaced with the maximum number of tabs allowed.";
 "article-tabs-navigation" = "Title for navigation in article tabs";
 "article-tabs-onboarding-tooltip" = "Tooltip title for tabs onboarding.";
@@ -214,8 +224,9 @@
 "developer-settings-activity-tab-group-A" = "Title for option to set activity tab experiment to group A";
 "developer-settings-activity-tab-group-B" = "Title for option to set activity tab experiment to group B";
 "developer-settings-activity-tab-group-C" = "Title for option to set activity tab experiment to group C";
-"developer-settings-activity-tabs" = "Title for option to enable activity tabs";
 "developer-settings-bypass-donation" = "Title for option to bypass a donation in developer settings menu.";
+"developer-settings-dynamic-tabs-BYR" = "Title for option to enable tabs Because You Read option";
+"developer-settings-dynamic-tabs-DYK" = "Title for option to enable Did You Know option";
 "developer-settings-enable-year-in-review" = "Title for enabling the Year in Review feature. Displayed on the developer settings view.";
 "developer-settings-send-analytics-to-wmflabs" = "Title for setting to send analytics to a different backend. Displayed on the developer settings view.";
 "developer-settings-suppress-image-rec-post" = "Title for setting to suppress image recommendations edit postsing. Displayed on the developer settings view.";

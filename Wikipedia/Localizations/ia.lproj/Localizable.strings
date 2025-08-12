@@ -129,6 +129,18 @@
 "article-revision-history" = "Historia de versiones del articulo";
 "article-save-error-not-enough-space" = "Non resta spatio sufficiente sur tu apparato pro salveguardar iste articulo.";
 "article-share" = "Condivider";
+"article-tabs-button-accessibility-hint" = "Naviga al vista general de schedas";
+"article-tabs-button-accessibility-label" = "Schedas de articulo";
+"article-tabs-feature-announcement-item-1-subtitle" = "Aperi plure articulos e cambia inter illos con facilitate.";
+"article-tabs-feature-announcement-item-1-title" = "Navigar con schedas";
+"article-tabs-feature-announcement-item-2-subtitle" = "Le schedas se rememora automaticamente tu position de rolamento.";
+"article-tabs-feature-announcement-item-2-title" = "Continua ubi tu ha cessate";
+"article-tabs-feature-announcement-item-3-subtitle" = "Aperi ligamines in schedas de fundo sin perder tu position.";
+"article-tabs-feature-announcement-item-3-title" = "Salveguardar ligamines pro plus tarde";
+"article-tabs-feature-announcement-item-4-subtitle" = "Elige factos curiose o suggestiones de lectura quando se aperi un nove scheda.";
+"article-tabs-feature-announcement-item-4-title" = "Personalisar tu nove scheda";
+"article-tabs-feature-announcement-sub-cta" = "Discoperi plus sur le schedas";
+"article-tabs-feature-announcement-title" = "Presentation de Schedas";
 "article-tabs-max-reached" = "Le limite de schedas ($1) ha essite attingite. Le articulo se ha aperite in le scheda actual. Per favor claude un o plus schedas.";
 "article-tabs-navigation" = "Navigation inter schedas";
 "article-tabs-onboarding-tooltip" = "Legendas emergente de introduction al schedas";
@@ -218,8 +230,9 @@
 "developer-settings-activity-tab-group-A" = "Mitter le scheda de activitate al gruppo A";
 "developer-settings-activity-tab-group-B" = "Mitter le scheda de activitate al gruppo B";
 "developer-settings-activity-tab-group-C" = "Mitter le scheda de activitate al gruppo C";
-"developer-settings-activity-tabs" = "Activar le schedas de activitate";
 "developer-settings-bypass-donation" = "Contornar donation";
+"developer-settings-dynamic-tabs-BYR" = "Activar schedas con “Perque tu ha legite”";
+"developer-settings-dynamic-tabs-DYK" = "Activar schedas con “Sapeva tu que…”";
 "developer-settings-enable-year-in-review" = "Activar le Summario del anno";
 "developer-settings-send-analytics-to-wmflabs" = "Inviar informationes analytic a wmflabs.";
 "developer-settings-suppress-image-rec-post" = "Non publicar le modification de recommendationes de imagine.";
@@ -567,7 +580,6 @@
 "gan-variants-alert-body" = "Le application de Wikipedia ora supporta le variantes sequente del gan como linguas primari o secundari in le application, rendente lo plus facile leger, cercar e modificar in tu variantes preferite:\n\n贛語 原文 Gan (gan)\n赣语 简体 Gan simplificate (gan-hans)\n贛語 繁體 Gan traditional (gan-hant)";
 "gan-variants-alert-title" = "Actualisationes del supporto de variantes del gan";
 "history-clear-all" = "Rader";
-"history-clear-cancel" = "Cancellar";
 "history-clear-confirmation-heading" = "Es tu secur de voler deler tote tu elementos recente?";
 "history-clear-delete-all" = "Si, dele toto";
 "history-title" = "Historia";
@@ -632,7 +644,7 @@
 "import-shared-reading-list-survey-prompt-button-cancel" = "Non ora";
 "import-shared-reading-list-survey-prompt-button-take-survey" = "Responder al sondage";
 "import-shared-reading-list-survey-prompt-footer" = "Consulta nostre $1declaration de confidentialitate$2. Sondage realisate per un tertie parte. Vide su $3politica de confidentialitate$4.";
-"import-shared-reading-list-survey-prompt-subtitle" = "\"Condivider listas de lectura\" es un function in test e nos ha besonio de tu retroaction pro meliorar o remover lo.";
+"import-shared-reading-list-survey-prompt-subtitle" = "“Condivider listas de lectura” es un function in test e nos ha besonio de tu evalutation pro meliorar o remover lo.";
 "import-shared-reading-list-survey-prompt-title" = "Poterea tu adjutar nos a meliorar \"Condivider listas de lectura\"?";
 "import-shared-reading-list-title" = "Importar lista de lectura condividite";
 "in-the-news-sub-title-from-language-wikipedia" = "De Wikipedia in $1";
@@ -1093,7 +1105,6 @@
 "search-did-you-mean" = "Vole tu dicer $1?";
 "search-field-placeholder-text" = "Cercar in Wikipedia";
 "search-reading-list-placeholder-text" = "Cercar in lista de lectura";
-"search-recent-clear-cancel" = "Cancellar";
 "search-recent-clear-confirmation-heading" = "Deler tote le recercas recente?";
 "search-recent-clear-confirmation-sub-heading" = "Iste action non pote esser disfacite!";
 "search-recent-clear-delete-all" = "Deler toto";
@@ -1280,6 +1291,7 @@
 "theme-default-explanation" = "Se adapta al thema del systema";
 "theme-light-display-name" = "Clar";
 "theme-sepia-display-name" = "Sepia";
+"today-title" = "Hodie";
 "top-read-widget-description" = "Discoperi lo que le mundo lege hodie sur Wikipedia.";
 "top-read-widget-readers-count" = "$1 lectores";
 "top-read-widget-title" = "Le plus legite";
@@ -1483,3 +1495,4 @@
 "year-in-review-survey-very-unsatisfied" = "Multo insatisfacite";
 "year-in-review-wikipedia-w-accessibility-label" = "Logotypo “W” de Wikipedia";
 "year-in-review-wmf-logo-accessibility-label" = "Logotypo del Fundation Wikimedia";
+"yesterday-title" = "Heri";

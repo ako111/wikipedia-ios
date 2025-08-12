@@ -2,8 +2,8 @@ import Foundation
 
 public protocol WMFDeveloperSettingsDataControlling: AnyObject {
     func loadFeatureConfig() -> WMFFeatureConfigResponse?
-    var enableArticleTabs: Bool { get }
-    var enableMoreDynamicTabs: Bool { get }
+    var enableMoreDynamicTabsBYR: Bool { get }
+    var enableMoreDynamicTabsDYK: Bool { get }
     var forceMaxArticleTabsTo5: Bool { get }
 }
 
@@ -99,24 +99,6 @@ public protocol WMFDeveloperSettingsDataControlling: AnyObject {
         }
     }
     
-    public var enableArticleTabs: Bool {
-        get {
-            return (try? userDefaultsStore?.load(key: WMFUserDefaultsKey.developerSettingsArticleTab.rawValue)) ?? false
-        } set {
-            try? userDefaultsStore?.save(key: WMFUserDefaultsKey.developerSettingsArticleTab.rawValue, value: newValue)
-            
-            if newValue {
-                Task {
-                    do {
-                        try await WMFArticleTabsDataController.shared.checkAndCreateInitialArticleTabIfNeeded()
-                    } catch {
-                        debugPrint("Failed to check or create initial article tab: \(error)")
-                    }
-                }
-            }
-        }
-    }
-    
     public var forceMaxArticleTabsTo5: Bool {
         get {
             return (try? userDefaultsStore?.load(key: WMFUserDefaultsKey.developerSettingsForceMaxArticleTabsTo5.rawValue)) ?? false
@@ -125,13 +107,20 @@ public protocol WMFDeveloperSettingsDataControlling: AnyObject {
         }
     }
 
-    public var enableMoreDynamicTabs: Bool {
+    public var enableMoreDynamicTabsBYR: Bool {
         get {
-            return (try? userDefaultsStore?.load(key: WMFUserDefaultsKey.developerSettingsMoreDynamicTabs.rawValue)) ?? false
+            return (try? userDefaultsStore?.load(key: WMFUserDefaultsKey.developerSettingsMoreDynamicTabsBYR.rawValue)) ?? false
         } set {
-            try? userDefaultsStore?.save(key: WMFUserDefaultsKey.developerSettingsMoreDynamicTabs.rawValue, value: newValue)
+            try? userDefaultsStore?.save(key: WMFUserDefaultsKey.developerSettingsMoreDynamicTabsBYR.rawValue, value: newValue)
         }
+    }
 
+    public var enableMoreDynamicTabsDYK: Bool {
+        get {
+            return (try? userDefaultsStore?.load(key: WMFUserDefaultsKey.developerSettingsMoreDynamicTabsDYK.rawValue)) ?? false
+        } set {
+            try? userDefaultsStore?.save(key: WMFUserDefaultsKey.developerSettingsMoreDynamicTabsDYK.rawValue, value: newValue)
+        }
     }
 
     // MARK: - Remote Settings from donatewiki AppsFeatureConfig json

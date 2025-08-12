@@ -293,7 +293,18 @@ public class CommonStrings: NSObject {
 
     public static let clearTitle = WMFLocalizedString("search-clear-title", value: "Clear", comment: "Text of the button shown to clear recent search terms")
 
+
+    public static let clearRecentSearchesDialogTitle = WMFLocalizedString("search-recent-clear-confirmation-heading", value: "Delete all recent searches?", comment: "Heading text of delete all confirmation dialog")
+
+    public static let clearRecentSearchesDialogSubtitle = WMFLocalizedString("search-recent-clear-confirmation-sub-heading", value: "This action cannot be undone!", comment: "Sub-heading text of delete all confirmation dialog")
+
+    public static let deleteAllTitle = WMFLocalizedString("search-recent-clear-delete-all", value: "Delete All", comment: "Button text for confirming delete all action {{Identical|Delete all}}")
+
     public static let accessibilityClearTitle = WMFLocalizedString("clear-title-accessibility-label", value: "Clear", comment: "Accessibility label title for action that clears text")
+
+    public static let recentlySearchedTitle = WMFLocalizedString("search-recent-title", value: "Recently searched", comment: "Title for list of recent search terms")
+
+    public static let recentlySearchedEmpty = WMFLocalizedString("search-recent-empty", value: "No recent searches yet", comment: "String for no recent searches available")
 
     public static let successfullyPublishedDiscussion = WMFLocalizedString("talk-page-new-topic-success-text", value: "Your discussion was successfully published", comment: "Banner text that appears after a new discussion was successfully published on a talk page.")
 
@@ -772,6 +783,17 @@ public class CommonStrings: NSObject {
     public static let savedAllTabs = WMFLocalizedString("saved-all-tabs", value: "Saved all tabs.", comment: "Message indicating all open tabs were saved.")
     public static let savedAllTabsViewReadingList = WMFLocalizedString("saved-all-tabs-view-reading-list", value: "Saved all tabs. View reading list.", comment: "Message indicating all tabs were saved with option to view reading list.")
     public static let mainPage = WMFLocalizedString("main-page", value: "Main page", comment: "Title for the Wikipedia main page.")
+    
+    public static let articleTabsFeatureAnnouncementTitle = WMFLocalizedString("article-tabs-feature-announcement-title", value: "Introducing Tabs", comment: "Title for the article tabs feature announcement")
+    public static let articleTabsFeatureAnnouncementItem1Title = WMFLocalizedString("article-tabs-feature-announcement-item-1-title", value: "Browse with tabs", comment: "Title for the article tabs feature announcement item")
+    public static let articleTabsFeatureAnnouncementItem1Subtitle = WMFLocalizedString("article-tabs-feature-announcement-item-1-subtitle", value: "Open multiple articles and switch between them with ease.", comment: "Subtitle for the article tabs feature announcement item 2")
+    public static let articleTabsFeatureAnnouncementItem2Title = WMFLocalizedString("article-tabs-feature-announcement-item-2-title", value: "Pick up where you left off", comment: "Title for the article tabs feature announcement item 2")
+    public static let articleTabsFeatureAnnouncementItem2Subtitle = WMFLocalizedString("article-tabs-feature-announcement-item-2-subtitle", value: "Tabs remember your scroll position automatically.", comment: "Subtitle for the article tabs feature announcement item 2")
+    public static let articleTabsFeatureAnnouncementItem3Title = WMFLocalizedString("article-tabs-feature-announcement-item-3-title", value: "Save links for later", comment: "Title for the article tabs feature announcement item 3")
+    public static let articleTabsFeatureAnnouncementItem3Subtitle = WMFLocalizedString("article-tabs-feature-announcement-item-3-subtitle", value: "Open links in background tabs without losing your place.", comment: "Subtitle for the article tabs feature announcement item 3")
+    public static let articleTabsFeatureAnnouncementItem4Title = WMFLocalizedString("article-tabs-feature-announcement-item-4-title", value: "Personalize your new tab", comment: "Title for the article tabs feature announcement item 4")
+    public static let articleTabsFeatureAnnouncementItem4Subtitle = WMFLocalizedString("article-tabs-feature-announcement-item-4-subtitle", value: "Choose fun facts or reading suggestions when opening a new tab.", comment: "Subtitle for the article tabs feature announcement item 4")
+    public static let articleTabsFeatureAnnouncementSubCTA = WMFLocalizedString("article-tabs-feature-announcement-sub-cta", value: "Learn more about Tabs", comment: "Call to action text in the article tabs feature announcement, inviting the user to learn more about tabs.")
 
     public static let tabsButtonAccessibilityHint = WMFLocalizedString("article-tabs-button-accessibility-hint", value: "Navigates to tabs overview", comment: "Accessibility hint for the tabs navigation bar button")
     public static let tabsButtonAccessibilityLabel = WMFLocalizedString("article-tabs-button-accessibility-label", value: "Article tabs", comment: "Accessibility label for the tabs navigation bar button")

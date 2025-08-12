@@ -125,6 +125,16 @@
 "article-share" = "Share";
 "article-tabs-button-accessibility-hint" = "Navigates to tabs overview";
 "article-tabs-button-accessibility-label" = "Article tabs";
+"article-tabs-feature-announcement-item-1-subtitle" = "Open multiple articles and switch between them with ease.";
+"article-tabs-feature-announcement-item-1-title" = "Browse with tabs";
+"article-tabs-feature-announcement-item-2-subtitle" = "Tabs remember your scroll position automatically.";
+"article-tabs-feature-announcement-item-2-title" = "Pick up where you left off";
+"article-tabs-feature-announcement-item-3-subtitle" = "Open links in background tabs without losing your place.";
+"article-tabs-feature-announcement-item-3-title" = "Save links for later";
+"article-tabs-feature-announcement-item-4-subtitle" = "Choose fun facts or reading suggestions when opening a new tab.";
+"article-tabs-feature-announcement-item-4-title" = "Personalize your new tab";
+"article-tabs-feature-announcement-sub-cta" = "Learn more about Tabs";
+"article-tabs-feature-announcement-title" = "Introducing Tabs";
 "article-tabs-max-reached" = "Tab limit reached ($1). The article was opened in the current tab. Please close one or more tabs.";
 "article-tabs-navigation" = "Tabs navigation";
 "article-tabs-onboarding-tooltip" = "Onboarding tooltips for tabs";
@@ -214,8 +224,9 @@
 "developer-settings-activity-tab-group-A" = "Set activity tab to group A";
 "developer-settings-activity-tab-group-B" = "Set activity tab to group B";
 "developer-settings-activity-tab-group-C" = "Set activity tab to group C";
-"developer-settings-activity-tabs" = "Enable activity tabs";
 "developer-settings-bypass-donation" = "Bypass Donation";
+"developer-settings-dynamic-tabs-BYR" = "Enable tabs with Because You Read";
+"developer-settings-dynamic-tabs-DYK" = "Enable tabs with Did You Know";
 "developer-settings-enable-year-in-review" = "Enable Year in Review";
 "developer-settings-send-analytics-to-wmflabs" = "Send analytics to wmflabs.";
 "developer-settings-suppress-image-rec-post" = "Do not post image recommendations edit.";

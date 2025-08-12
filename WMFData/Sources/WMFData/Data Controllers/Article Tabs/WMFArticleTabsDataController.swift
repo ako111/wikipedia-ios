@@ -85,19 +85,21 @@ public class WMFArticleTabsDataController: WMFArticleTabsDataControlling {
             self.tabItemIdentifier = tabItemIdentifier
         }
     }
-    
-    public enum ArticleTabsExperimentAssignment {
+
+    public enum MoreDynamicTabsExperimentAssignment {
         case control
-        case test
+        case becauseYouRead
+        case didYouKnow
     }
 
     // MARK: Nested internal types
 
     struct OnboardingStatus: Codable {
         var hasPresentedOnboardingTooltips: Bool
+        var hasPresentedOnboardingTabs: Bool
 
         static var `default`: OnboardingStatus {
-            return OnboardingStatus(hasPresentedOnboardingTooltips: false)
+            return OnboardingStatus(hasPresentedOnboardingTooltips: false, hasPresentedOnboardingTabs: false)
         }
     }
 
@@ -109,9 +111,10 @@ public class WMFArticleTabsDataController: WMFArticleTabsDataControlling {
     private let developerSettingsDataController: WMFDeveloperSettingsDataControlling
     
     private let experimentsDataController: WMFExperimentsDataController?
-    private var assignmentCache: ArticleTabsExperimentAssignment?
-    private let articleTabsExperimentPercentage: Int = 50
-    
+    private var assignmentCache: MoreDynamicTabsExperimentAssignment?
+
+    private let moreDynamicTabsExperimentPercentage: Int = 33
+
     // This setup allows us to try instantiation multiple times in case the first attempt fails (like for example, if coreDataStore is not available yet).
     private var _backgroundContext: NSManagedObjectContext?
     public var backgroundContext: NSManagedObjectContext? {
@@ -144,32 +147,35 @@ public class WMFArticleTabsDataController: WMFArticleTabsDataControlling {
             self.experimentsDataController = nil
         }
     }
-    
-    // MARK: Entry point
 
-    public var needsMoreDynamicTabs: Bool {
-        return developerSettingsDataController.enableMoreDynamicTabs 
+    // MARK: - Experiment
+
+
+    public func shouldAssignToBucket() -> Bool {
+        return experimentsDataController?.bucketForExperiment(.moreDynamicTabs) == nil
     }
 
-    public var shouldShowArticleTabs: Bool {
-        guard !developerSettingsDataController.enableArticleTabs else {
+    public var shouldShowMoreDynamicTabs: Bool {
+        guard !developerSettingsDataController.enableMoreDynamicTabsDYK else {
             return true
         }
-        
-        guard let assignment = try? getArticleTabsExperimentAssignment() else {
+
+        guard !developerSettingsDataController.enableMoreDynamicTabsBYR else {
+            return true
+        }
+
+        guard let assignment = try? getMoreDynamicTabsExperimentAssignment() else {
             return false
         }
-        
+
         switch assignment {
-        case .test:
+        case .becauseYouRead, .didYouKnow:
             return true
         case .control:
             return false
         }
     }
-    
-    // MARK: Experiment
-    
+
     private var primaryAppLanguageProject: WMFProject? {
         if let language = WMFDataEnvironment.current.appData.appLanguages.first {
             return WMFProject.wikipedia(language)
@@ -177,64 +183,32 @@ public class WMFArticleTabsDataController: WMFArticleTabsDataControlling {
         
         return nil
     }
-    
-    public func qualifiesForExperiment() -> Bool {
-        guard let primaryAppLanguageProject else {
-            return false
-        }
-        
-        return Locale.current.qualifiesForExperiment && primaryAppLanguageProject.qualifiesForExperiment
-    }
-    
+
     private var isBeforeAssignmentEndDate: Bool {
         var dateComponents = DateComponents()
         dateComponents.year = 2025
-        dateComponents.month = 7
-        dateComponents.day = 31
+        dateComponents.month = 9
+        dateComponents.day = 30
         guard let endDate = Calendar.current.date(from: dateComponents) else {
             return false
         }
         
         return endDate >= Date()
     }
-    
-    public func assignExperiment() throws -> ArticleTabsExperimentAssignment {
-        
-        guard qualifiesForExperiment() else {
-            throw CustomError.doesNotQualifyForExperiment
-        }
-        
-        guard isBeforeAssignmentEndDate else {
-            throw CustomError.pastAssignmentEndDate
-        }
-        
-        guard let experimentsDataController else {
-            throw CustomError.missingExperimentsDataController
+
+    public func qualifiesForExperiment() -> Bool {
+        guard let primaryAppLanguageProject else {
+            return false
         }
 
-        let bucketValue = try experimentsDataController.determineBucketForExperiment(.articleTabs, withPercentage: articleTabsExperimentPercentage)
-
-        let assignment: ArticleTabsExperimentAssignment
-
-        switch bucketValue {
-        case .articleTabsControl:
-            assignment = .control
-        case .articleTabsTest:
-            assignment = .test
-        default:
-            throw CustomError.unexpectedAssignment
-        }
-
-        self.assignmentCache = assignment
-        return assignment
+        return Locale.current.qualifiesForExperiment && primaryAppLanguageProject.qualifiesForExperiment
     }
-    
-    public func getArticleTabsExperimentAssignment() throws -> ArticleTabsExperimentAssignment {
-        
+
+    public func getMoreDynamicTabsExperimentAssignment() throws -> MoreDynamicTabsExperimentAssignment {
         guard qualifiesForExperiment() else {
             throw CustomError.doesNotQualifyForExperiment
         }
-        
+
         guard let experimentsDataController else {
             throw CustomError.missingExperimentsDataController
         }
@@ -243,16 +217,51 @@ public class WMFArticleTabsDataController: WMFArticleTabsDataControlling {
             return assignmentCache
         }
 
-        guard let bucketValue = experimentsDataController.bucketForExperiment(.articleTabs) else {
+        guard let bucketValue = experimentsDataController.bucketForExperiment(.moreDynamicTabs) else {
             throw CustomError.missingAssignment
         }
 
-        let assignment: ArticleTabsExperimentAssignment
+        let assignment: MoreDynamicTabsExperimentAssignment
         switch bucketValue {
-        case .articleTabsControl:
+
+        case .moreDynamicTabsControl:
             assignment = .control
-        case .articleTabsTest:
-            assignment = .test
+        case .moreDynamicTabsBecauseYouRead:
+            assignment = .becauseYouRead
+        case .moreDynamicTabsDidYouKnow:
+            assignment = .didYouKnow
+        default:
+            throw CustomError.unexpectedAssignment
+        }
+
+        self.assignmentCache = assignment
+        return assignment
+    }
+
+    public func assignExperiment() throws -> MoreDynamicTabsExperimentAssignment {
+        guard qualifiesForExperiment() else {
+            throw CustomError.doesNotQualifyForExperiment
+        }
+
+        guard isBeforeAssignmentEndDate else {
+            throw CustomError.pastAssignmentEndDate
+        }
+
+        guard let experimentsDataController else {
+            throw CustomError.missingExperimentsDataController
+        }
+
+        let bucketValue = try experimentsDataController.determineBucketForExperiment(.moreDynamicTabs, withPercentage: moreDynamicTabsExperimentPercentage)
+
+        let assignment: MoreDynamicTabsExperimentAssignment
+
+        switch bucketValue {
+        case .moreDynamicTabsControl:
+            assignment = .control
+        case .moreDynamicTabsBecauseYouRead:
+            assignment = .becauseYouRead
+        case .moreDynamicTabsDidYouKnow:
+            assignment = .didYouKnow
         default:
             throw CustomError.unexpectedAssignment
         }
@@ -264,7 +273,9 @@ public class WMFArticleTabsDataController: WMFArticleTabsDataControlling {
     // MARK: Onboarding
 
     internal var onboardingStatus: OnboardingStatus {
-        return (try? userDefaultsStore?.load(key: WMFUserDefaultsKey.articleTabsOnboarding.rawValue)) ?? OnboardingStatus.default
+        get {
+            return (try? userDefaultsStore?.load(key: WMFUserDefaultsKey.articleTabsOnboarding.rawValue)) ?? OnboardingStatus.default
+        }
     }
 
     public var hasPresentedTooltips: Bool {
@@ -276,7 +287,18 @@ public class WMFArticleTabsDataController: WMFArticleTabsDataControlling {
             try? userDefaultsStore?.save(key: WMFUserDefaultsKey.articleTabsOnboarding.rawValue, value: currentStatus)
         }
     }
-
+    
+    public var hasSeenFeatureAnnouncement: Bool {
+        get {
+            return onboardingStatus.hasPresentedOnboardingTabs
+        }
+        set {
+            var currentStatus = onboardingStatus
+            currentStatus.hasPresentedOnboardingTabs = newValue
+            try? userDefaultsStore?.save(key: WMFUserDefaultsKey.articleTabsOnboarding.rawValue, value: currentStatus)
+        }
+    }
+    
     // MARK: - Tabs Manipulation Methods
     
     public func tabsCount() async throws -> Int {
@@ -889,7 +911,7 @@ private extension WMFProject {
     var qualifiesForExperiment: Bool {
         switch self {
         case .wikipedia(let language):
-            return language.languageCode.lowercased() == "en" || language.languageCode.lowercased() == "ar" || language.languageCode.lowercased() == "ja"
+            return language.languageCode.lowercased() == "en" || language.languageCode.lowercased() == "ar" || language.languageCode.lowercased() == "de"
         case .wikidata:
             return false
         case .commons:
@@ -903,11 +925,12 @@ private extension Locale {
         guard let identifier = region?.identifier.lowercased() else {
             return false
         }
-        
         switch identifier {
-        case "au", "hk", "id", "jp", "my", "mm", "nz", "ph", "sg", "kr", "tw", "th", "vn":
+        case "au", "hk", "id", "jp", "my", "mm", "nz", "ph", "sg", "kr", "tw", "th", "vn": // eseap
             return true
-        case "dz", "bh", "eg", "jo", "kw", "lb", "ly", "ma", "om", "qa", "sa", "tn", "ae", "ye":
+        case "dz", "bh", "eg", "jo", "kw", "lb", "ly", "ma", "om", "qa", "sa", "tn", "ae", "ye": // mena
+            return true
+        case "de": // germany
             return true
         default:
             return false

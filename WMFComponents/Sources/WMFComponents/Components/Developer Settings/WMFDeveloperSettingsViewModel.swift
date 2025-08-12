@@ -6,7 +6,8 @@ import WMFData
     let developerSettings: String
     let doNotPostImageRecommendations: String
     let sendAnalyticsToWMFLabs: String
-    let enableArticleTab: String
+    let enableMoreDynamicTabsBYR: String
+    let enableMoreDynamicTabsDYK: String
     let enableYearinReview: String
     let bypassDonation: String
     let forceEmailAuth: String
@@ -15,12 +16,13 @@ import WMFData
     let setActivityTabGroupC: String
     let done: String
 
-    @objc public init(developerSettings: String, doNotPostImageRecommendations: String, sendAnalyticsToWMFLabs: String, enableArticleTab: String, enableYearinReview: String, bypassDonation: String, forceEmailAuth: String, setActivityTabGroupA: String, setActivityTabGroupB: String, setActivityTabGroupC: String, done: String) {
+    @objc public init(developerSettings: String, doNotPostImageRecommendations: String, sendAnalyticsToWMFLabs: String, enableMoreDynamicTabsBYR: String, enableMoreDynamicTabsDYK: String, enableYearinReview: String, bypassDonation: String, forceEmailAuth: String, setActivityTabGroupA: String, setActivityTabGroupB: String, setActivityTabGroupC: String, done: String) {
         self.developerSettings = developerSettings
         self.doNotPostImageRecommendations = doNotPostImageRecommendations
         self.sendAnalyticsToWMFLabs = sendAnalyticsToWMFLabs
+        self.enableMoreDynamicTabsBYR = enableMoreDynamicTabsBYR
+        self.enableMoreDynamicTabsDYK = enableMoreDynamicTabsDYK
         self.enableYearinReview = enableYearinReview
-        self.enableArticleTab = enableArticleTab
         self.bypassDonation = bypassDonation
         self.forceEmailAuth = forceEmailAuth
         self.setActivityTabGroupA = setActivityTabGroupA
@@ -36,6 +38,7 @@ import WMFData
     let formViewModel: WMFFormViewModel
     private var subscribers: Set<AnyCancellable> = []
     private var activityTabGroupCoordinator: ActivityTabGroupBindingCoordinator?
+    private var moreDynamicTabsGroupCoordinator: MoreDynamicTabsGroupBindingCoordinator?
 
     @objc public init(localizedStrings: WMFDeveloperSettingsLocalizedStrings) {
         self.localizedStrings = localizedStrings
@@ -46,11 +49,11 @@ import WMFData
         let bypassDonationItem = WMFFormItemSelectViewModel(title: localizedStrings.bypassDonation, isSelected: WMFDeveloperSettingsDataController.shared.bypassDonation)
         let forceEmailAuth = WMFFormItemSelectViewModel(title: localizedStrings.forceEmailAuth, isSelected: WMFDeveloperSettingsDataController.shared.forceEmailAuth)
         
-        let enableArticleTabs = WMFFormItemSelectViewModel(title: "Enable article tabs", isSelected: WMFDeveloperSettingsDataController.shared.enableArticleTabs)
-        
         let forceMaxArticleTabsTo5 = WMFFormItemSelectViewModel(title: "Force Max Article Tabs to 5", isSelected: WMFDeveloperSettingsDataController.shared.forceMaxArticleTabsTo5)
 
-        let enableMoreDynamicTabs = WMFFormItemSelectViewModel(title: "Enable more dynamic tabs", isSelected: WMFDeveloperSettingsDataController.shared.enableMoreDynamicTabs)
+        let enableMoreDynamicTabsBYR = WMFFormItemSelectViewModel(title: localizedStrings.enableMoreDynamicTabsBYR, isSelected: WMFDeveloperSettingsDataController.shared.enableMoreDynamicTabsBYR)
+
+        let enableMoreDynamicTabsDYK = WMFFormItemSelectViewModel(title: localizedStrings.enableMoreDynamicTabsDYK, isSelected: WMFDeveloperSettingsDataController.shared.enableMoreDynamicTabsDYK)
 
         let setActivityTabGroupA = WMFFormItemSelectViewModel(title: localizedStrings.setActivityTabGroupA, isSelected: WMFDeveloperSettingsDataController.shared.setActivityTabGroupA)
         let setActivityTabGroupB = WMFFormItemSelectViewModel(title: localizedStrings.setActivityTabGroupB, isSelected: WMFDeveloperSettingsDataController.shared.setActivityTabGroupB)
@@ -66,9 +69,10 @@ import WMFData
                 setActivityTabGroupA,
                 setActivityTabGroupB,
                 setActivityTabGroupC,
-                enableArticleTabs,
                 forceMaxArticleTabsTo5,
-                enableMoreDynamicTabs
+                enableMoreDynamicTabsBYR,
+                enableMoreDynamicTabsDYK
+
             ], selectType: .multi)
         ])
 
@@ -89,17 +93,15 @@ import WMFData
             .sink { isSelected in WMFDeveloperSettingsDataController.shared.forceEmailAuth = isSelected }
             .store(in: &subscribers)
         
-        enableArticleTabs.$isSelected
-            .sink { isSelected in WMFDeveloperSettingsDataController.shared.enableArticleTabs = isSelected }
-            .store(in: &subscribers)
-        
         forceMaxArticleTabsTo5.$isSelected
             .sink { isSelected in WMFDeveloperSettingsDataController.shared.forceMaxArticleTabsTo5 = isSelected }
             .store(in: &subscribers)
 
-        enableMoreDynamicTabs.$isSelected
-            .sink { isSelected in WMFDeveloperSettingsDataController.shared.enableMoreDynamicTabs = isSelected }
+        enableMoreDynamicTabsBYR.$isSelected
+            .sink { isSelected in WMFDeveloperSettingsDataController.shared.enableMoreDynamicTabsBYR = isSelected }
             .store(in: &subscribers)
+
+        moreDynamicTabsGroupCoordinator = MoreDynamicTabsGroupBindingCoordinator(becauseYouRead: enableMoreDynamicTabsBYR, didYouKnow: enableMoreDynamicTabsDYK)
 
         activityTabGroupCoordinator = ActivityTabGroupBindingCoordinator(
             groupA: setActivityTabGroupA,
@@ -138,3 +140,26 @@ private final class ActivityTabGroupBindingCoordinator {
         }.store(in: &subscribers)
     }
 }
+
+
+private final class MoreDynamicTabsGroupBindingCoordinator {
+    private var subscribers: Set<AnyCancellable> = []
+
+    init(becauseYouRead: WMFFormItemSelectViewModel, didYouKnow: WMFFormItemSelectViewModel) {
+        becauseYouRead.$isSelected.sink { isSelected in
+            WMFDeveloperSettingsDataController.shared.enableMoreDynamicTabsBYR = isSelected
+            if isSelected {
+                didYouKnow.isSelected = false
+            }
+        }.store(in: &subscribers)
+
+        didYouKnow.$isSelected.sink { isSelected in
+            WMFDeveloperSettingsDataController.shared.enableMoreDynamicTabsDYK = isSelected
+            if isSelected {
+                becauseYouRead.isSelected = false
+            }
+        }.store(in: &subscribers)
+
+    }
+}
+
